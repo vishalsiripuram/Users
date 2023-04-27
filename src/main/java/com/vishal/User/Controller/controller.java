@@ -27,26 +27,31 @@ public class controller {
     public UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity<User> saveUser(@RequestBody User user){
+    public String saveUser(@RequestBody User user){
 
-        return new ResponseEntity<>(userService.saveUser(user),HttpStatus.CREATED);
+        return "Hi im user";
     }
+//     @PostMapping("/save")
+//     public ResponseEntity<User> saveUser(@RequestBody User user){
+
+//         return new ResponseEntity<>(userService.saveUser(user),HttpStatus.CREATED);
+//     }
 
 
-    @GetMapping("/{Uid}")
-    public ResponseEntity<User> getUser(@PathVariable Integer Uid){
-        return new ResponseEntity<>(userService.getUser(Uid),HttpStatus.ACCEPTED);
-    }
+//     @GetMapping("/{Uid}")
+//     public ResponseEntity<User> getUser(@PathVariable Integer Uid){
+//         return new ResponseEntity<>(userService.getUser(Uid),HttpStatus.ACCEPTED);
+//     }
 
-    @GetMapping("/allUsers")
-    public ResponseEntity<List<User>> getAllUser(){
-        return new ResponseEntity<>(userService.getAll(),HttpStatus.OK);
-    }
+//     @GetMapping("/allUsers")
+//     public ResponseEntity<List<User>> getAllUser(){
+//         return new ResponseEntity<>(userService.getAll(),HttpStatus.OK);
+//     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable Integer id){
-        userService.deleteUser(id);
-        return new ResponseEntity<ApiResponse>(new ApiResponse("user deleted successfully "+id,true,HttpStatus.ACCEPTED),HttpStatus.ACCEPTED);
-    }
+//     @DeleteMapping("/{id}")
+//     public ResponseEntity<ApiResponse> deleteUser(@PathVariable Integer id){
+//         userService.deleteUser(id);
+//         return new ResponseEntity<ApiResponse>(new ApiResponse("user deleted successfully "+id,true,HttpStatus.ACCEPTED),HttpStatus.ACCEPTED);
+//     }
     
 }
